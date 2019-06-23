@@ -4,6 +4,8 @@ CHART_NAME ?= p4/static
 
 SHELL := /bin/bash
 
+APP_SOURCE := /home/circleci/app/deploy/docker/source
+
 NAMESPACE ?= default
 
 DEV_CLUSTER ?= p4-development
@@ -50,18 +52,17 @@ test:
 pull:
 	docker pull gcr.io/planet-4-151612/openresty:latest
 
-docker/checkout-develop:
-	rsync -av ./ deploy/docker/source/ --exclude=deploy
-	cd deploy/docker/source ; echo $CIRCLE_SHA1 > version.txt
-	yq -r .hostname deploy/env/dev/values.yaml | tr -d '\n' > deploy/docker/source/hostname.txt
-	yq -r .hostpath deploy/env/dev/values.yaml | tr -d '\n' > deploy/docker/source/hostpath.txt
+checkout-develop:
+	rsync -av /home/circleci/app/ $(APP_SOURCE)/ --exclude=deploy
+	echo $${CIRCLE_SHA1:0:8} > $(APP_SOURCE)/version.txt
+	yq -r .hostname /home/circleci/app/deploy/env/dev/values.yaml | tr -d '\n' > $(APP_SOURCE)/hostname.txt
+	yq -r .hostpath /home/circleci/app/deploy/env/dev/values.yaml | tr -d '\n' > $(APP_SOURCE)/hostpath.txt
 
-docker/checkout-tag:
-	git clone --depth 1 $(GIT_SRC) docker/source
-	cd docker/source ; git checkout `git tag -l --points-at HEAD | tail -n 1`
-	cd docker/source ; echo `git tag -l --points-at HEAD | tail -n 1` > version.txt
-	yq -r .hostname env/prod/values.yaml | tr -d '\n' > docker/source/hostname.txt
-	yq -r .hostpath env/prod/values.yaml | tr -d '\n' > docker/source/hostpath.txt
+checkout-tag:
+	rsync -av /home/circleci/app/ $(APP_SOURCE)/ --exclude=deploy
+	echo ${CIRCLE_TAG} > $(APP_SOURCE)/version.txt
+	yq -r .hostname /home/circleci/app/deploy/env/prod/values.yaml | tr -d '\n' > $(APP_SOURCE)/hostname.txt
+	yq -r .hostpath /home/circleci/app/deploy/env/prod/values.yaml | tr -d '\n' > $(APP_SOURCE)/hostpath.txt
 
 docker/public:
 	cd docker/source ; npm install
