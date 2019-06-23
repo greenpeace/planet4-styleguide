@@ -19,7 +19,16 @@ jobs:
     environment:
       GOOGLE_PROJECT_ID: planet4-production
     steps:
-      - run: trigger-build-api.sh planet4-styleguide-deploy develop
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - checkout
+      - run: activate-gcloud-account.sh
+      - run: docker-login.sh
+      - run: cd /home/circleci/app/deploy
+      - run: make checkout-develop
+      - run: make build
+      - run: make docker-push
+      - run: make dev
 
 
 workflows:
@@ -30,7 +39,7 @@ workflows:
           context: org-global
           filters:
             branches:
-              only: master
+              only: deploy
   tag:
     jobs:
       - deploy-tag:
