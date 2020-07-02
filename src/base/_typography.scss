@@ -148,12 +148,4 @@ a {
     color: var(--link-hover--color, $link-hover-color);
     text-decoration: underline;
   }
-
-  &:visited {
-    color: $link-visited-color;
-  }
-
-  &:hover, &:visited {
-    text-decoration: none !important;
-  }
 }
