@@ -550,7 +550,7 @@ $navbar-default-height: 60px;
     font-size: $font-size-md;
     line-height: 26px;
     color: $dark-blue;
-    top: 11px;
+    top: 13px;
     border-radius: 4px;
 
     html[dir="rtl"] & {
@@ -559,14 +559,13 @@ $navbar-default-height: 60px;
     }
 
     .icon {
-      vertical-align: middle;
       font-size: $font-size-lg;
       top: 5px;
     }
 
     @include large-and-up {
       right: 16px;
-      top: 9px;
+      top: 11px;
 
       html[dir="rtl"] & {
         left: 16px;
