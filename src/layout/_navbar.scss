@@ -226,9 +226,12 @@ $navbar-default-height: 60px;
 //
 // Styleguide Style.logo
 .site-logo {
-  position: absolute;
-  width: 100%;
+  align-self: center;
   text-align: center;
+
+  @include medium-and-up {
+    width: 100%;
+  }
 
   @include large-and-up {
     position: static;
