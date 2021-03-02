@@ -21,11 +21,11 @@
     opacity: 0;
     pointer-events: none;
 
-    &:not(:disabled) + .custom-control-description:hover:before {
+    &:not(:disabled) ~ .custom-control-description:hover:before {
       border-color: $grey-80;
     }
 
-    & + .custom-control-description {
+    & ~ .custom-control-description {
       position: relative;
       cursor: pointer;
       font-family: $roboto;
@@ -58,7 +58,7 @@
       }
     }
 
-    &:checked + .custom-control-description {
+    &:checked ~ .custom-control-description {
       &:before {
         border-color: $grey-80;
       }
@@ -85,7 +85,7 @@
       }
     }
 
-    &:disabled + .custom-control-description {
+    &:disabled ~ .custom-control-description {
       cursor: auto;
 
       &:before {
@@ -99,11 +99,11 @@
     pointer-events: none;
     opacity: 0;
 
-    &:not(:disabled) + .custom-control-description:hover:before {
+    &:not(:disabled) ~ .custom-control-description:hover:before {
       border-color: $grey-80;
     }
 
-    & + .custom-control-description {
+    & ~ .custom-control-description {
       position: relative;
       cursor: pointer;
       font-family: $roboto;
@@ -135,7 +135,7 @@
       }
     }
 
-    &:checked + .custom-control-description:before {
+    &:checked ~ .custom-control-description:before {
       background: $grey-80;
       box-shadow: inset 0 0 0 2px $white;
       border-color: $grey-80;
