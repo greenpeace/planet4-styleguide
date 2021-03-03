@@ -70,6 +70,9 @@ $min-height: 40px;
 $navbar-default-height: 60px;
 
 .top-navigation {
+  _-- {
+    background: transparentize($dark-blue, 0.2);
+  }
   position: fixed;
   width: 100%;
   top: 0;
@@ -80,7 +83,6 @@ $navbar-default-height: 60px;
   flex-direction: row;
   justify-content: space-between;
   align-items: normal;
-  background: var(--campaign_nav_color, transparentize($dark-blue, 0.2));
   height: $menu-height-small;
   font-family: $roboto;
 

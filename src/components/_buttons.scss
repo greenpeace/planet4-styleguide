@@ -12,19 +12,20 @@
 .btn,
 .wp-block-button a,
 .wp-block-file .wp-block-file__button {
+  --button-- {
+    font-family: $roboto;
+    font-size: $font-size-sm;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 0 30px;
+    line-height: 3;
+  }
   display: inline-block;
   position: relative;
-  font-family: $roboto;
-  font-size: $font-size-sm;
   text-align: center;
   text-decoration: none;
-  color: $white;
-  font-weight: bold;
-  border-radius: 4px;
   border: 1px solid transparent;
   cursor: pointer;
-  line-height: 3;
-  padding: 0 $n30;
   appearance: none;
   transition-property: color, background-color, border-color;
   transition-duration: 150ms;
@@ -56,23 +57,31 @@
   line-height: 3.1;
 }
 
+$primary-button-box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
+
 .btn-primary,
 .wp-block-button.is-style-cta a {
-  background-color: $orange;
-  color: var(--btn-primary-color, $white);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
-
-  &:hover,
-  &:focus,
-  &:active {
-    background-color: $orange-hover;
-    border-color: $orange-hover;
-  }
-
-  &:disabled,
-  &.disabled,
-  &[disabled] {
+  --button-primary-- {
     background-color: $orange;
+    color: $white;
+    border-color: transparent;
+    box-shadow: $primary-button-box-shadow;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $orange-hover;
+      border-color: $orange-hover;
+      box-shadow: $primary-button-box-shadow;
+    }
+
+    &:disabled,
+    &.disabled,
+    &[disabled] {
+      background-color: $orange;
+      border-color: transparent;
+      box-shadow: $primary-button-box-shadow;
+    }
   }
 }
 
@@ -80,14 +89,40 @@
 .wp-block-button.is-style-secondary a,
 [class="wp-block-button"] a,
 .wp-block-file .wp-block-file__button {
-  background-color: transparentize($white, .7);
-  border-color: $dark-blue;
-  color: $dark-blue;
-  box-shadow: none;
+  --button-secondary-- {
+    background-color: transparentize($white, .7);
+    border-color: $dark-blue;
+    color: $dark-blue;
+    box-shadow: none;
+    margin-bottom: 40px;
+
+    &:visited {
+      color: $dark-blue;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $dark-blue;
+      border-color: $dark-blue;
+      color: $white;
+    }
+
+    &:active {
+      background-color: $active-blue;
+      border-color: $active-blue;
+    }
+
+    &:disabled,
+    &.disabled,
+    &[disabled] {
+      background-color: $white;
+      color: $dark-blue;
+      border-color: $dark-blue;
+    }
+  }
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-bottom: 40px;
   width: 100%;
 
   @include medium-and-up {
@@ -103,29 +138,6 @@
   @include x-large-and-up {
     margin-bottom: 0;
     width: 60%;
-  }
-
-  &:visited {
-    color: $dark-blue;
-  }
-
-  &:hover,
-  &:focus {
-    background-color: $dark-blue;
-    border-color: $dark-blue;
-    color: $white;
-  }
-
-  &:active {
-    background-color: $active-blue;
-    border-color: $active-blue;
-  }
-
-  &:disabled,
-  &.disabled,
-  &[disabled] {
-    background-color: $white;
-    color: $dark-blue;
   }
 }
 
@@ -156,19 +168,21 @@
 
 .btn-donate,
 .wp-block-button.is-style-donate a {
-  background-color: var(--btn-donate-background-color, $aquamarine);
-  color: var(--btn-donate-color, $grey-80);
+  --button-donate-- {
+    background: $aquamarine;
+    color: $grey-80;
+    min-width: 180px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
+
+    &:hover,
+    &:focus {
+      color: transparentize($grey-80, 0.2);
+    }
+  }
   line-height: 1.65;
-  min-width: 180px;
   margin: 0;
   padding: 2px $n30;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
   text-transform: none;
-
-  &:hover,
-  &:focus {
-    color: transparentize($grey-80, 0.2);
-  }
 
   @include large-and-up {
     font-size: $font-size-md;
