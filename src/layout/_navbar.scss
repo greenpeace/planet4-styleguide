@@ -72,7 +72,10 @@ $navbar-default-height: 60px;
 .top-navigation {
   _-- {
     background: transparentize($dark-blue, 0.2);
+    border-bottom-width: 0;
+    border-bottom-color: transparent;
   }
+  border-bottom-style: solid;
   position: fixed;
   width: 100%;
   top: 0;

@@ -19,6 +19,9 @@
     border-radius: 4px;
     padding: 0 30px;
     line-height: 3;
+    transition-property: color, background-color, border-color;
+    transition-duration: 150ms;
+    transition-timing-function: linear;
   }
   display: inline-block;
   position: relative;
@@ -27,9 +30,6 @@
   border: 1px solid transparent;
   cursor: pointer;
   appearance: none;
-  transition-property: color, background-color, border-color;
-  transition-duration: 150ms;
-  transition-timing-function: linear;
 
   &:hover,
   &:focus,
@@ -62,7 +62,7 @@ $primary-button-box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
 .btn-primary,
 .wp-block-button.is-style-cta a {
   --button-primary-- {
-    background-color: $orange;
+    background: $orange;
     color: $white;
     border-color: transparent;
     box-shadow: $primary-button-box-shadow;
@@ -70,7 +70,7 @@ $primary-button-box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
     &:hover,
     &:focus,
     &:active {
-      background-color: $orange-hover;
+      background: $orange-hover;
       border-color: $orange-hover;
       box-shadow: $primary-button-box-shadow;
     }
@@ -78,7 +78,7 @@ $primary-button-box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
     &:disabled,
     &.disabled,
     &[disabled] {
-      background-color: $orange;
+      background: $orange;
       border-color: transparent;
       box-shadow: $primary-button-box-shadow;
     }
@@ -90,7 +90,7 @@ $primary-button-box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
 [class="wp-block-button"] a,
 .wp-block-file .wp-block-file__button {
   --button-secondary-- {
-    background-color: transparentize($white, .7);
+    background: transparentize($white, .7);
     border-color: $dark-blue;
     color: $dark-blue;
     box-shadow: none;
@@ -102,20 +102,20 @@ $primary-button-box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
 
     &:hover,
     &:focus {
-      background-color: $dark-blue;
+      background: $dark-blue;
       border-color: $dark-blue;
       color: $white;
     }
 
     &:active {
-      background-color: $active-blue;
+      background: $active-blue;
       border-color: $active-blue;
     }
 
     &:disabled,
     &.disabled,
     &[disabled] {
-      background-color: $white;
+      background: $white;
       color: $dark-blue;
       border-color: $dark-blue;
     }
