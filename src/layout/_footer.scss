@@ -219,7 +219,9 @@
 }
 
 .gp-year {
-  color: var(--footer_links_color, $white);
+  --footer--copyright--year-- {
+    color: $white;
+  }
   font-size: $font-size-xxs;
   text-transform: none;
 
@@ -241,7 +243,9 @@
   line-height: 1;
 
   .footer-social-media {
-    color: var(--footer_links_color, $grey-20);
+    _-- {
+      color: $grey-20;
+    }
     font-size: $font-size-xl;
     margin: 0 auto $space-md auto;
     text-align: center;
@@ -273,13 +277,15 @@
   }
 
   .gp-year {
-    color: var(--footer_links_color, $white);
+    _-- {
+      color: $white;
+    }
     font-size: $font-size-xxs;
     font-family: $lora;
     margin: 40px 0 30px 0;
   }
 
-  .icon {
-    fill: var(--footer_links_color, $white);
+  .icon _-- {
+    fill: $white;
   }
 }
