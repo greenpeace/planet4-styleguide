@@ -628,10 +628,12 @@ $navbar-default-height: 60px;
 }
 
 .country-list {
+  _-- {
+    background: $x-dark-blue;
+    line-height: 1.5;
+  }
   display: none;
   text-transform: none;
-  background: $x-dark-blue;
-  line-height: 1.5;
   padding: 1.4em 0;
   overflow-y: hidden;
   top: $navbar-default-height;
@@ -721,14 +723,15 @@ $navbar-default-height: 60px;
   }
 
   @include large-and-up {
+    --country-list--large-up-- {
+      height: 344px;
+      width: 80%;
+      left: 10%;
+    }
+    max-height: calc(100vh - #{$menu-height-large});
     position: absolute;
-    height: 344px;
-    width: 80%;
-    left: 10%;
     overflow-x: hidden;
     overflow-y: hidden !important;
-    max-height: 344px;
-    max-height: calc(100vh - #{$menu-height-large});
     padding: 2em 4em 4em;
 
     .admin-bar & {
