@@ -786,7 +786,9 @@ $navbar-default-height: 60px;
 }
 
 .navigation-bar_min {
-  height: $min-height;
+  --top-navigation-min-- {
+    height: $min-height;
+  }
   align-items: baseline;
   justify-content: start;
 
