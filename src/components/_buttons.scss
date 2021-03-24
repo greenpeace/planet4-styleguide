@@ -173,10 +173,13 @@ $primary-button-box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
     color: $grey-80;
     min-width: 180px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, .25);
+    border-width: 1px;
+    border-color: transparent;
 
     &:hover,
     &:focus {
       color: transparentize($grey-80, 0.2);
+      background: var(--button-donate--background-color, $aquamarine);
     }
   }
   line-height: 1.65;
